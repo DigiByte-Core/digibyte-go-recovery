@@ -3,7 +3,7 @@
   "dependencies": {
     "angular": "1.4.4",
     "angular-local-storage": "~0.2.2",
-    "bitcore": "0.13.1",
+    "bitcore": "git://github.com/digibyte/bitcore.git",
     "bitcore-mnemonic": "0.13.2",
     "bootstrap": "3.3.5",
     "jquery": "2.1.4",

@@ -241,14 +241,14 @@ app.service('recoveryServices', ['$rootScope', '$http', 'lodash',
       if (network == 'testnet')
         return $http.get('https://test-insight.bitpay.com/api/addr/' + address + '?noTxList=1');
       else
-        return $http.get('https://insight.bitpay.com/api/addr/' + address + '?noTxList=1');
+        return $http.get('https://digiexplorer.info/api/addr/' + address + '?noTxList=1');
     }
 
     root.checkUtxos = function(address, network) {
       if (network == 'testnet')
         return $http.get('https://test-insight.bitpay.com/api/addr/' + address + '/utxo?noCache=1');
       else
-        return $http.get('https://insight.bitpay.com/api/addr/' + address + '/utxo?noCache=1');
+        return $http.get('https://digiexplorer.info/api/addr/' + address + '/utxo?noCache=1');
     }
 
     root.createRawTx = function(toAddress, scanResults, wallet, fee) {
@@ -299,7 +299,7 @@ app.service('recoveryServices', ['$rootScope', '$http', 'lodash',
           rawtx: rawTx
         });
       else
-        return $http.post('https://insight.bitpay.com/api/tx/send', {
+        return $http.post('https://digiexplorer.info/api/tx/send', {
           rawtx: rawTx
         });
     }

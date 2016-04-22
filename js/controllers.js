@@ -2,7 +2,7 @@ var app = angular.module("recoveryApp", ["recoveryApp.services", "ngLodash"]);
 app.controller("recoveryController", function($rootScope, $scope, recoveryServices, lodash) {
   var scanResults;
   var wallet;
-  var fee = 0.0001;
+  var fee = 1.00000000;
   var mainAddressObjects = [];
   var changeAddressObjects = [];
 
@@ -80,9 +80,9 @@ app.controller("recoveryController", function($rootScope, $scope, recoveryServic
       $("#myModal").modal('hide');
 
       if ((scanResults.balance - fee) > 0)
-        $scope.totalBalance = "Available balance: " + scanResults.balance.toFixed(8) + " BTC";
+        $scope.totalBalance = "Available balance: " + scanResults.balance.toFixed(8) + " DGB";
       else
-        $scope.totalBalance = "Available balance: " + scanResults.balance.toFixed(8) + " BTC. Insufficents funds.";
+        $scope.totalBalance = "Available balance: " + scanResults.balance.toFixed(8) + " DGB. Insufficents funds.";
     });
   }
 
@@ -97,8 +97,8 @@ app.controller("recoveryController", function($rootScope, $scope, recoveryServic
     }
 
     recoveryServices.txBroadcast(rawTx, network).then(function(response) {
-        showMessage((scanResults.balance - fee).toFixed(8) + ' BTC sent to address: ' + toAddress, 2);
-        console.log('Transaction complete.  ' + (scanResults.balance - fee) + ' BTC sent to address: ' + toAddress);
+        showMessage((scanResults.balance - fee).toFixed(8) + ' DGB sent to address: ' + toAddress, 2);
+        console.log('Transaction complete.  ' + (scanResults.balance - fee) + ' DGB sent to address: ' + toAddress);
       },
       function(error) {
         showMessage('Could not broadcast transaction. Please, try later.', 3);
